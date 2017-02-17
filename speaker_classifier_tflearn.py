@@ -12,9 +12,9 @@ import speech_data as data
 # 'predicted speaker for 9_Vicki_260 : result = ', 'Vicki'
 import tensorflow as tf
 print("You are using tensorflow version "+ tf.__version__) #+" tflearn version "+ tflearn.version)
-if tf.__version__ >= '0.12' and os.name == 'nt':
-	print("sorry, tflearn is not ported to tensorflow 0.12 on windows yet!(?)")
-	quit() # why? works on Mac?
+#if tf.__version__ >= '0.12' and os.name == 'nt':
+#	print("sorry, tflearn is not ported to tensorflow 0.12 on windows yet!(?)")
+#	quit() # why? works on Mac?
 
 speakers = data.get_speakers()
 number_classes=len(speakers)
@@ -36,8 +36,9 @@ net = tflearn.regression(net, optimizer='adam', loss='categorical_crossentropy')
 model = tflearn.DNN(net)
 model.fit(X, Y, n_epoch=100, show_metric=True, snapshot_step=100)
 
-# demo_file = "8_Vicki_260.wav"
-demo_file = "8_Bruce_260.wav"
+#demo_file = "8_Vicki_260.wav"
+#demo_file = "8_Bruce_260.wav"
+demo_file = "8_Tom_380.wav"
 demo=data.load_wav_file(data.path + demo_file)
 result=model.predict([demo])
 result=data.one_hot_to_item(result,speakers)

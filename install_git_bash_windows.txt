@@ -1,0 +1,28 @@
+#installer anaconda
+git clone https://github.com/pannous/tensorflow-speech-recognition
+conda create -n tensorflow python=3.5
+source activate tensorflow
+#pip install tensorflow
+#pip install --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.0.0rc2-cp35-cp35m-win_amd64.whl
+pip install --upgrade http://ci.tensorflow.org/view/Nightly/job/nightly-win/85/DEVICE=cpu,OS=windows/artifact/cmake_build/tf_python/dist/tensorflow-1.0.0rc2-cp35-cp35m-win_amd64.whl
+
+python 
+
+>>>import tensorflow as tf
+
+hello = tf.constant('Hello, TensorFlow!')
+sess = tf.Session()
+print(sess.run(hello))
+
+exit()
+
+
+#pip install tflearn
+cd .. && git clone https://github.com/tflearn/tflearn.git
+cd tflearn && python setup.py install
+cd ../tensorflow-speech-recognition
+pip install /c/Users/xdurand/Downloads/curses-2.2-cp35-none-win_amd64.whl
+source conda install h5py
+source conda install Scipy
+source conda install scikit-image
+
